@@ -216,11 +216,11 @@ FROM Products;
 
 ```
 SELECT 
-	COUNT(prod_id) AS num_items,
-	MIN(prod_price) AS min_price,
-	MAX(prod_price) AS max_price,
-	AVG(prod_price) AS avg_price
-FROM Products
+    COUNT(prod_id) AS num_items,
+    MIN(prod_price) AS min_price,
+    MAX(prod_price) AS max_price,
+    AVG(prod_price) AS avg_price
+FROM Products;
 ```
 
 
