@@ -90,7 +90,7 @@ SELECT
     vend_name, 
     UPPER(vend_name) AS vender_name_upcase
 FROM Vendors
-ORDER BY vend_name
+ORDER BY vend_name;
 ```
 
 SOUNDEX：匹配所有发音类似于Michael Green的联系人：
@@ -112,7 +112,7 @@ DATEPART：
 ```
 SELECT order_num, order_date
 FROM Orders
-WHERE DATEPART(YYYY,order_date) = 2012
+WHERE DATEPART(YYYY,order_date) = 2012;
 ```
 
 ## 数值处理函数
@@ -131,7 +131,97 @@ WHERE DATEPART(YYYY,order_date) = 2012
 
 ## 聚集函数
 
+| 函数 | 说明 |
+| :--- | :--- |
+| AVG\(\) | 返回某列的平均值 |
+| COUNT\(\) | 返回某列的行数 |
+| MAX\(\) | 返回某列的最大值 |
+| MIN\(\) | 返回某列的最小值 |
+| SUM\(\) | 返回某列的值之和 |
 
+AVG：
+
+* 该函数只能用于单个列；
+* 忽略列值为NULL的行；
+
+```
+SELECT AVG(prod_price) AS avg_price
+FROM Products;
+--6.823333
+```
+
+COUNT：
+
+* COUNT\(\*\)包含列值为NULL的行；
+* COUNT\(column\)忽略列值为NULL的行；
+
+```
+SELECT COUNT(*) AS num_cust
+FROM Customers;
+```
+
+MAX和MIN：
+
+* 常用于找出最大的数值或日期；
+* 也可用于返回文本列中排序在最后的值；
+* 忽略列值为NULL的行；
+
+```
+SELECT MAX(prod_price) AS max_price
+FROM Products;
+```
+
+```
+SELECT MIN(prod_price) AS min_price
+FROM Products;
+```
+
+SUM：
+
+* 可用于多个列上的计算，例如SUM\(item\_price \* quantity\)先对一行的两个列求乘积，在累加所有列的和返回；
+* 忽略列值为NULL的行；
+
+计算订单号20005的商品数量：
+
+```
+SELECT SUM(quantity) AS items_ordered
+FROM OrderItems
+WHERE order_num = 20005;
+```
+
+合计订单号20005的总金额：
+
+```
+SELECT SUM(item_price * quantity) AS total_price
+FROM OrderItems
+WHERE order_num = 20005;
+```
+
+## 聚合不同值
+
+在聚合函数的参数前面增加DISTINCT关键字，只聚合不同的数值。
+
+* DISTINCT不能用于COUNT\(\*\)，DISTINCT只能用于列名前面，不能用于计算或表达式；
+* DISTINCT用在MIN和MAX函数上是没有价值；
+* 与DISTINCT关键字相对的是ALL关键字，默认为ALL关键字参数；
+
+例如AVG：
+
+```
+SELECT AVG(DISTINCT prod_price)
+FROM Products;
+```
+
+## 组合聚集函数
+
+```
+SELECT 
+	COUNT(prod_id) AS num_items,
+	MIN(prod_price) AS min_price,
+	MAX(prod_price) AS max_price,
+	AVG(prod_price) AS avg_price
+FROM Products
+```
 
 
 
