@@ -80,20 +80,40 @@ SELECT GETDATE();            --返回当前时间
 | LTRIM\(\) | 去掉字符串左边的空格 |
 | RIGHT\(\) | \*返回字符串右边的字符 |
 | RTRIM\(\) | 去掉字符串右边的空格 |
-| SOUNDEX\(\) | \*返回字符串的SOUNDEX值 |
+| SOUNDEX\(\) | \*返回字符串的SOUNDEX值（将任何文本串转换为描述其语音表示的字母数字模式的算法——即进行发音比较，匹配发音类似的字符） |
 | UPPER\(\) | 将字符串转换为大写 |
 
-UPPER
+UPPER：
 
 ```
 SELECT 
-	vend_name, 
-	UPPER(vend_name) AS vender_name_upcase
+    vend_name, 
+    UPPER(vend_name) AS vender_name_upcase
 FROM Vendors
 ORDER BY vend_name
 ```
 
+SOUNDEX：匹配所有发音类似于Michael Green的联系人：
+
+```
+SELECT cust_name, cust_contact
+FROM Customers
+WHERE SOUNDEX(cust_contact) = SOUNDEX('Michael Green');    --OUTPUT：Kids Place | Michelle Green 
+```
+
 ## 日期和时间处理函数
+
+| 函数 | 说明 |
+| :--- | :--- |
+| DATEPART\('返回的成分', '从中返回成分的日期'\) | 返回日期的某一部分 |
+
+DATEPART：
+
+```
+SELECT order_num, order_date
+FROM Orders
+WHERE DATEPART(YYYY,order_date) = 2012
+```
 
 ## 数值处理函数
 
