@@ -51,5 +51,55 @@ FROM Customers
 WHERE cust_email IS NULL
 ```
 
+## 组合WHERE子句
+
+AND操作符：
+
+要通过不止一个列进行过滤。
+
+```
+SELECT prod_id, prod_name, prod_price
+FROM Products
+WHERE vend_id = 'DLL01'
+AND prod_price <= 4
+```
+
+OR操作符：
+
+检索匹配任意条件的行。
+
+```
+SELECT prod_name, prod_price
+FROM Products
+WHERE vend_id = 'DLL01' OR vend_id = 'BRS01'
+```
+
+## 求值顺序
+
+WHERE子句允许包含任意多个AND和OR操作符，允许两者结合起来进行复杂、高级的过滤。
+
+SQL在处理OR操作符前，优先处理AND操作符。例如：想要列出价格10美元以上，且有DLL01和BRS01制造的所有产品：
+
+```
+SELECT prod_name, prod_price
+FROM Products
+WHERE vend_id = 'DLL01' OR vend_id = 'BRS01' AND prod_price >= 10
+```
+
+这条语句实际翻译为：由供应商BRS01制造的且价格为10美元以上的所有产品，加上由供应商DLL01制造的所有产品。
+
+解决方案：使用圆括号。因为圆括号具有不AND和OR更高的求值顺序。
+
+```
+SELECT prod_name, prod_price
+FROM Products
+WHERE (vend_id = 'DLL01' OR vend_id = 'BRS01')
+AND prod_price >= 10
+```
+
+## IN操作符
+
+
+
 
 
