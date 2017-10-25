@@ -28,7 +28,7 @@ ORDER BY prod_price, prod_name
 
 ## 指定排序方向
 
-DESC关键字：指定降序排序（Z-A），数据库默认排序为升序排序（A-Z），即ASC关键字。
+DESC关键字（DESCENDING的缩写）：指定降序排序（Z-A），数据库默认排序为升序排序（A-Z），即ASC关键字（ASCENDING的缩写）。
 
 DESC关键字只应用到直接位于前面的列名，如果想在多个列上进行降序排序，必须对每一列指定DESC关键字
 
