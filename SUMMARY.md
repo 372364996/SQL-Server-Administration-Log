@@ -6,4 +6,5 @@
   * [检索数据](sql/jian-suo-shu-ju.md)
   * [排序](sql/pai-xu.md)
   * [过滤](sql/guo-lv.md)
+  * [函数](sql/han-shu.md)
 

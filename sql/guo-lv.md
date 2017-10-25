@@ -132,5 +132,70 @@ NOT关键字与IN关键字联合使用时，可以非常简单的找出与条件
 
 ## LIKE操作符
 
+LIKE指示后面跟的搜索模式利用通配符而不是简单的相等匹配进行比较。为了在搜索子句中使用通配符，**必须使用LIKE操作符**。
 
+通配符搜索**只能用于文本字段**（字符串），非文本数据类型字段不能使用通配符搜索。使用通配符是由代价的，即通配符搜索一般比其他搜索要消耗更长的处理时间。
+
+使用通配符的技巧：
+
+* 不要过度使用通配符，能使用操作符的尽量使用操作符；
+* 不要将通配符置于搜索模式的开始处，因为这样搜索起来是最慢的；
+* 仔细斟酌通配符的位置，放错位置则不会返回想要的数据。
+
+百分号（%）通配符：
+
+%表示任意字符出现任意次数（0次、1次或多次）。但有一个例外，不会匹配值为NULL的行。
+
+例一：找出所有以Fish开头的产品：
+
+```
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE 'Fish%';
+```
+
+通配符可以在搜索模式中的任意位置使用，并且可以使用多个。
+
+例二：找出产品名称包含bean bag的产品：
+
+```
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE '%bean bag%';
+```
+
+通配符可以出现在搜索模式的中间。
+
+例三：找出所有以F开头、以y结尾的所有产品：
+
+```
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE 'F%y';
+```
+
+下划线（\_）通配符：
+
+\_只匹配单个字符。
+
+```
+SELECT prod_id, prod_name
+FROM Products
+WHERE prod_name LIKE '__ inch teddy bear';
+```
+
+方括号（\[\]）通配符：
+
+\[\]用来指定一个字符集，它必须匹配**指定位置**的**单个**字符。
+
+例一：找出以J和M开头的联系人：
+
+```
+SELECT cust_contact
+FROM Customers
+WHERE cust_contact LIKE '[JM]%'
+ORDER BY cust_contact;
+```
+
+此通配符可以使用前缀字符^（脱字号）来表示否定。
 
