@@ -47,5 +47,7 @@
 
 发音为S-Q-L或sequel，是Structured Query Language（结构化查询语言）的缩写。标准SQL由ANSI标准委员会管理，从而称为ANSI SQL。
 
+子句（clause）：
 
+SQL语句由子句构成，有些子句是必须的，有些子句是可选的。一个子句通常由一个关键字加上所提供的数据组成。
 
