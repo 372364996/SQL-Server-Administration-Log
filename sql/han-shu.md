@@ -98,7 +98,7 @@ SOUNDEX：匹配所有发音类似于Michael Green的联系人：
 ```
 SELECT cust_name, cust_contact
 FROM Customers
-WHERE SOUNDEX(cust_contact) = SOUNDEX('Michael Green');    --OUTPUT：Kids Place | Michelle Green 
+WHERE SOUNDEX(cust_contact) = SOUNDEX('Michael Green');    --OUTPUT：Kids Place | Michelle Green
 ```
 
 ## 日期和时间处理函数
@@ -116,6 +116,22 @@ WHERE DATEPART(YYYY,order_date) = 2012
 ```
 
 ## 数值处理函数
+
+用于代数、三角或几何运算。
+
+| 函数 | 说明 |
+| :--- | :--- |
+| ABS\(\) | 返回一个数的绝对值 |
+| COS\(\) | 返回一个角度的余弦 |
+| EXP\(\) | 返回一个数的指数值 |
+| PI\(\) | 返回圆周率 |
+| SIN\(\) | 返回一个角度的正弦 |
+| SQRT\(\) | 返回一个数的平方根 |
+| TAN\(\) | 返回一个角度的正切 |
+
+## 聚集函数
+
+
 
 
 
