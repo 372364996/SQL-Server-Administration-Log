@@ -15,7 +15,21 @@ SQL语句**不区分大小写**；
 * 对SQL关键字使用大写，对表明和列名使用小写，更容易阅读和调试；
 * 将SQL语句分成多行，更容易阅读和调试；
 
+## 检索单个列
 
+```
+SELECT prod_name
+FROM Products
+```
+
+## 检索多个列
+
+必须在列名之间加上逗号，在最后一个列名后面不能加逗号，否则报错。
+
+```
+SELECT prod_name, prod_price, prod_desc
+FROM Products
+```
 
 
 
