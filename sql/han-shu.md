@@ -52,10 +52,10 @@ SQL算数运算符：
 
 ```
 SELECT 
-	prod_id, 
-	quantity, 
-	item_price, 
-	quantity * item_price AS expanded_price	--这是一个计算列
+    prod_id, 
+    quantity, 
+    item_price, 
+    quantity * item_price AS expanded_price    --这是一个计算列
 FROM OrderItems
 WHERE order_num = 20008;
 ```
@@ -69,6 +69,33 @@ SELECT 2 * 3;                --返回6
 SELECT RTRIM('ABC    ');     --返回abc
 SELECT GETDATE();            --返回当前时间
 ```
+
+## 文本处理函数
+
+| 函数 | 说明 |
+| :--- | :--- |
+| LEFT\(\) | \*返回字符串左边的字符 |
+| LENGTH\(\) | 返回字符串的长度 |
+| LOWER\(\) | 将字符串转换为小写 |
+| LTRIM\(\) | 去掉字符串左边的空格 |
+| RIGHT\(\) | \*返回字符串右边的字符 |
+| RTRIM\(\) | 去掉字符串右边的空格 |
+| SOUNDEX\(\) | \*返回字符串的SOUNDEX值 |
+| UPPER\(\) | 将字符串转换为大写 |
+
+UPPER
+
+```
+SELECT 
+	vend_name, 
+	UPPER(vend_name) AS vender_name_upcase
+FROM Vendors
+ORDER BY vend_name
+```
+
+## 日期和时间处理函数
+
+## 数值处理函数
 
 
 
