@@ -19,7 +19,7 @@ WHERE prod_price = 3.49
 | != | 不等于 | !&gt; | 不大于 |
 | &lt; | 小于 | BETWEEN......AND...... | 在指定的两个值之间 |
 | &lt;= | 小于等于 | IS NULL | 为NULL的值 |
-| !&lt; | 不小于 |  |  |
+| !&lt; | 不小于 | IN | 指定条件范围内的任何值都可以进行匹配 |
 
 ## 不匹配检查
 
@@ -99,7 +99,38 @@ AND prod_price >= 10
 
 ## IN操作符
 
+用来指定条件范围，由逗号分隔，扩在圆括号中的条件，每个条件都可以进行匹配。功能与OR相当。
 
+```
+SELECT prod_name, prod_price
+FROM Products
+WHERE vend_id IN ('DLL01', 'BRS01')
+ORDER BY prod_name;
+```
+
+使用IN操作符的优点：
+
+* 在有很多合法选项时，IN操作符的语法更清楚；
+* 在与其他AND和OR操作符组合使用时，使用IN操作符使求值顺序更容易管理；
+* IN操作符一般**比一组OR操作符执行的更快**。
+* IN的**最大优点是可以包含其他SELECT语句**，能够更动态的建立WHERE子句。
+
+## NOT操作符
+
+WHERE子句中用来否定其后所跟的任何条件的关键字。
+
+例如：取出除DLL01之外的所有供应商制造的产品：
+
+```
+SELECT prod_name
+FROM Products
+WHERE NOT vend_id = 'DLL01'
+ORDER BY prod_name;
+```
+
+NOT关键字与IN关键字联合使用时，可以非常简单的找出与条件列表不匹配的行。
+
+## LIKE操作符
 
 
 
