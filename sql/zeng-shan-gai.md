@@ -126,7 +126,7 @@ WHERE cust_id = '1000000005'；
 UPDATE Customers
 SET cust_email = 'kim@thetoystore.com',
     cust_contact = 'Sam Roberts'
-WHERE cust_id = '1000000005'
+WHERE cust_id = '1000000005';
 ```
 
 在UPDATE中使用子查询：
@@ -134,10 +134,37 @@ WHERE cust_id = '1000000005'
 ```
 UPDATE Customers
 SET cust_email = 'kim@thetoystore.com',
-	cust_contact = (SELECT cust_contact 
-					FROM CustCopy 
-					WHERE cust_id = '1000000005')
-WHERE cust_id = '1000000005'
+    cust_contact = (SELECT cust_contact 
+                    FROM CustCopy 
+                    WHERE cust_id = '1000000005')
+WHERE cust_id = '1000000005';
+```
+
+要删除某个列的值，可将它设为NULL（NULL表示没有值）；
+
+```
+UPDATE Customers
+SET cust_email = NULL
+WHERE cust_id = '1000000005';
+```
+
+## 删除（DELETE）
+
+* FROM关键字可选，但建议加上；
+* DELECT删除行，如果要删除列，请使用UPDATE；
+* DELECT只能删除行，甚至是删除所有行，但不能删除表本身；
+
+```
+DELETE FROM Customers
+WHERE cust_id = '1000000006';
+```
+
+更快的删除表中的数据：
+
+如果要删除表中的所有行，不要使用DELETE，要使用**TRUNCATE TABLE**语句，它完成相同的工作，而且速度更快。
+
+```
+TRUNCATE TABLE [dbo].[CustCopy]
 ```
 
 
