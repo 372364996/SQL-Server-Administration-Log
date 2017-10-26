@@ -130,14 +130,33 @@ FROM Customers AS C
 FULL OUTER JOIN Orders AS O
 ON C.cust_id = O.cust_id
 
--- cust_id	order_num
+-- cust_id       order_num
 ---------------------------
--- 1000000001	20005
--- 1000000001	20009
--- 1000000002	NULL
--- 1000000003	20006
--- 1000000004	20007
--- 1000000005	20008
+-- 1000000001    20005
+-- 1000000001    20009
+-- 1000000002    NULL
+-- 1000000003    20006
+-- 1000000004    20007
+-- 1000000005    20008
+```
+
+## 使用聚集函数的联结
+
+```
+SELECT 
+	C.cust_id, 
+	COUNT(order_num) AS order_nums
+FROM Customers AS C
+INNER JOIN Orders AS O
+ON C.cust_id = O.cust_id
+GROUP BY C.cust_id
+
+-- cust_id	order_nums
+---------------------------
+-- 1000000001	2
+-- 1000000003	1
+-- 1000000004	1
+-- 1000000005	1
 ```
 
 
