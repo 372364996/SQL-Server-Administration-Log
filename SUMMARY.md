@@ -13,4 +13,5 @@
   * [组合（union）](sql/zu-he-ff08-union.md)
   * [增删改](sql/zeng-shan-gai.md)
   * [操作表](sql/cao-zuo-biao.md)
+  * [视图（view）](sql/shi-tu-ff08-view.md)
 
