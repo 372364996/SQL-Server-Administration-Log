@@ -85,7 +85,7 @@ WHERE cust_name IN(SELECT cust_name
 
 外联结包含了那些在相关表中没有关联的行。
 
-使用OUTER JOIN语法时，必须指定RIGHT或LEFT关键字指定**包括其所有行的表**（RIGHT指出的是OUTER JOIN右边的表，而LEFT指出的是OUTER JOIN左边的表）。
+使用OUTER JOIN语法时，必须指定RIGHT或LEFT关键字指定**包括其所有行的表**（RIGHT指出的是OUTER JOIN右边的表，而LEFT指出的是OUTER JOIN左边的表）。因此有两种形式的外联结：左外联结和右外联结，它们唯一的区别是所关联的表的顺序。
 
 左外联结示例：
 
@@ -113,13 +113,31 @@ FROM Customers AS C
 RIGHT OUTER JOIN Orders AS O
 ON C.cust_id = O.cust_id
 
--- cust_id		order_num
+-- cust_id       order_num
+---------------------------
+-- 1000000001    20005
+-- 1000000003    20006
+-- 1000000004    20007
+-- 1000000005    20008
+-- 1000000001    20009
+```
+
+还有一种连接：全外联结（full outer join），它检索两个表中所有行并关联那些可以关联的行。全外联结包含两个表的不关联的行。
+
+```
+SELECT C.cust_id, o.order_num
+FROM Customers AS C
+FULL OUTER JOIN Orders AS O
+ON C.cust_id = O.cust_id
+
+-- cust_id	order_num
 ---------------------------
 -- 1000000001	20005
+-- 1000000001	20009
+-- 1000000002	NULL
 -- 1000000003	20006
 -- 1000000004	20007
 -- 1000000005	20008
--- 1000000001	20009
 ```
 
 
