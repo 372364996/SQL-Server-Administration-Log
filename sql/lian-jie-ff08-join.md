@@ -87,20 +87,39 @@ WHERE cust_name IN(SELECT cust_name
 
 使用OUTER JOIN语法时，必须指定RIGHT或LEFT关键字指定**包括其所有行的表**（RIGHT指出的是OUTER JOIN右边的表，而LEFT指出的是OUTER JOIN左边的表）。
 
+左外联结示例：
+
 ```
 SELECT C.cust_id, O.order_num
 FROM Customers AS C
 LEFT OUTER JOIN Orders AS O
 ON C.cust_id = O.cust_id
 
+-- cust_id       order_num
+---------------------------
+-- 1000000001    20005
+-- 1000000001    20009
+-- 1000000002    NULL
+-- 1000000003    20006
+-- 1000000004    20007
+-- 1000000005    20008
+```
+
+右外联结示例：
+
+```
+SELECT C.cust_id, o.order_num
+FROM Customers AS C
+RIGHT OUTER JOIN Orders AS O
+ON C.cust_id = O.cust_id
+
 -- cust_id		order_num
 ---------------------------
 -- 1000000001	20005
--- 1000000001	20009
--- 1000000002	NULL
 -- 1000000003	20006
 -- 1000000004	20007
 -- 1000000005	20008
+-- 1000000001	20009
 ```
 
 
