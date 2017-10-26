@@ -22,7 +22,7 @@ WHERE子句的重要性：在联结两个表时，实际要做的是将第一个
 
 返回笛卡尔积的联结，称为叉联结。
 
-内联结（inner join）：
+## 内联结（inner join）：
 
 基于两个表之间相等的测试，这种联结称为内联结，也成为等值联结（EQUIjoin）。
 
@@ -34,6 +34,48 @@ ON Vendors.vend_id = Products.vend_id
 ```
 
 这个语句与上面使用WHERE的语句效果相同，**ANSI SQL规范首选INNER JOIN语法**。
+
+性能考虑：
+
+尽量减少联结的表的数量，联结的表数量越多，性能下降越厉害。
+
+表别名：
+
+表别名只在查询执行中使用，与列别名不同，表别名不返回到客户端。
+
+```
+SELECT C.cust_name, C.cust_contact
+FROM Customers AS C
+INNER JOIN Orders AS O
+ON C.cust_id = O.cust_id
+INNER JOIN OrderItems AS OI
+ON O.order_num = OI.order_num
+WHERE OI.prod_id = 'RGAN01'
+```
+
+## 自联结
+
+例如：列出Jim Jones这个人工作的公司的所有员工（提示：cust\_name保存的是公司名，cust\_contact保存的是员工名）：
+
+```
+SELECT C1.cust_id, C1.cust_name, C1.cust_contact
+--,C2.cust_id, C2.cust_name, C2.cust_contact
+FROM Customers AS C1
+INNER JOIN Customers AS C2
+ON C1.cust_name = C2.cust_name
+WHERE C2.cust_contact = 'Jim Jones'
+```
+
+也可使用如下语句（更容易理解）：
+
+```
+SELECT cust_id, cust_name, cust_contact
+FROM Customers
+WHERE cust_name IN(SELECT cust_name
+				   FROM Customers
+				   WHERE cust_contact = 'Jim Jones'
+				   )
+```
 
 
 
