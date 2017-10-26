@@ -11,4 +11,5 @@
   * [子查询](sql/zi-cha-xun.md)
   * [联结（join）](sql/lian-jie-ff08-join.md)
   * [组合（union）](sql/zu-he-ff08-union.md)
+  * [增删改](sql/zeng-shan-gai.md)
 
