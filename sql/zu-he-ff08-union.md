@@ -50,7 +50,7 @@ WHERE cust_name = 'Fun4All';
 
 ## 包含或取消重复的行
 
-UNION默认排除了重复的行，使用UNION ALL将返回所有匹配的行。
+UNION默认排除了重复的行，执行后的结果与使用WHERE相同，使用UNION ALL将返回所有匹配的行，它能完成WHERE完成不了的工作。
 
 ```
 SELECT cust_name, cust_contact, cust_email
@@ -67,6 +67,29 @@ WHERE cust_name = 'Fun4All';
 -- Fun4All           Jim Jones               jjones@fun4all.com
 -- The Toy Store     Kim Howard              NULL
 -- Fun4All           Jim Jones               jjones@fun4all.com
+-- Village Toys      John Smith              sales@villagetoys.com
+```
+
+## 对组合查询结果排序
+
+使用一条ORDER BY语句，并位于最后一条SELECT语句之后。
+
+```
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_state IN('IL', 'IN', 'MI')
+UNION ALL
+SELECT cust_name, cust_contact, cust_email
+FROM Customers
+WHERE cust_name = 'Fun4All'
+ORDER BY cust_name, cust_contact
+
+-- cust_name         cust_contact            cust_email
+------------------------------------------------------------------
+-- Fun4All           Denise L. Stephens      dstephens@fun4all.com
+-- Fun4All           Jim Jones               jjones@fun4all.com
+-- Fun4All           Jim Jones               jjones@fun4all.com
+-- The Toy Store     Kim Howard              NULL
 -- Village Toys      John Smith              sales@villagetoys.com
 ```
 
