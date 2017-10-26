@@ -120,12 +120,23 @@ SET cust_email = 'kim@thetoystore.com'
 WHERE cust_id = '1000000005'；
 ```
 
-更新多个列：
+更新多个列时，只是用一个SET命令：
 
 ```
 UPDATE Customers
 SET cust_email = 'kim@thetoystore.com',
-	cust_contact = 'Sam Roberts'
+    cust_contact = 'Sam Roberts'
+WHERE cust_id = '1000000005'
+```
+
+在UPDATE中使用子查询：
+
+```
+UPDATE Customers
+SET cust_email = 'kim@thetoystore.com',
+	cust_contact = (SELECT cust_contact 
+					FROM CustCopy 
+					WHERE cust_id = '1000000005')
 WHERE cust_id = '1000000005'
 ```
 
