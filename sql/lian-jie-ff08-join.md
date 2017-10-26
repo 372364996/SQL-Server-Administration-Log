@@ -142,21 +142,27 @@ ON C.cust_id = O.cust_id
 
 ## 使用聚集函数的联结
 
+例如：列出所有顾客及每个顾客所下的订单数：
+
+1. 联结Customers表和Orders表；
+2. 检索数据列：cust\_id和order\_num，执行检索；
+3. 根据检索结果，按顾客进行分组，并统计每个组的order\_num数量；
+
 ```
 SELECT 
-	C.cust_id, 
-	COUNT(order_num) AS order_nums
+    C.cust_id, 
+    COUNT(order_num) AS order_nums
 FROM Customers AS C
 INNER JOIN Orders AS O
 ON C.cust_id = O.cust_id
 GROUP BY C.cust_id
 
--- cust_id	order_nums
+-- cust_id     order_nums
 ---------------------------
--- 1000000001	2
--- 1000000003	1
--- 1000000004	1
--- 1000000005	1
+-- 1000000001    2
+-- 1000000003    1
+-- 1000000004    1
+-- 1000000005    1
 ```
 
 
