@@ -8,4 +8,5 @@
   * [过滤](sql/guo-lv.md)
   * [函数](sql/han-shu.md)
   * [分组](sql/fen-zu.md)
+  * [子查询](sql/zi-cha-xun.md)
 
