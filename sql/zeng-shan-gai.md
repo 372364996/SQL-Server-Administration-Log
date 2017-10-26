@@ -24,23 +24,44 @@ VALUES('1000000006',
 
 ```
 INSERT INTO Customers([cust_id], 
+                      [cust_name], 
+                      [cust_address], 
+                      [cust_city], 
+                      [cust_state], 
+                      [cust_zip], 
+                      [cust_country], 
+                      [cust_contact], 
+                      [cust_email])
+VALUES('1000000006', 
+       'Toy Land',
+       '123 Any Street',
+       'New York',
+       'NY',
+       '11111',
+       'USA',
+       NULL,
+       NULL);
+```
+
+推荐使用总是给出列名的INSERT语句。这样即使表列顺序发生变化，依然可以成功执行。
+
+插入部分行：
+
+```
+INSERT INTO Customers([cust_id], 
 					  [cust_name], 
 					  [cust_address], 
 					  [cust_city], 
 					  [cust_state], 
 					  [cust_zip], 
-					  [cust_country], 
-					  [cust_contact], 
-					  [cust_email])
+					  [cust_country])
 VALUES('1000000006', 
 	   'Toy Land',
 	   '123 Any Street',
 	   'New York',
 	   'NY',
 	   '11111',
-	   'USA',
-	   NULL,
-	   NULL);
+	   'USA');
 ```
 
 
