@@ -9,4 +9,5 @@
   * [函数](sql/han-shu.md)
   * [分组](sql/fen-zu.md)
   * [子查询](sql/zi-cha-xun.md)
+  * [联结（join）](sql/lian-jie-ff08-join.md)
 
