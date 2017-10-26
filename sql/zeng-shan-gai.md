@@ -68,7 +68,9 @@ VALUES('1000000006',
 
 插入检索出的数据：
 
-从新表NewCust中选择所有行插入到Customers表中。
+* 从新表NewCust中选择**所有行**插入到Customers表中，当然，SELECT语句可以包含WHERE子句用来过滤想要插入的数据；
+* 不要求INSERT和SELECT语句的列名匹配，它是根据列的位置来填充的；
+* 普通的INSERT语句只插入一行数据，INSERT SELECT语句是个例外，SELECT返回多少行就插入多少行；
 
 ```
 INSERT INTO Customers([cust_id]
@@ -89,7 +91,42 @@ SELECT [cust_id]
      , [cust_country]
      , [cust_contact]
      , [cust_email]
-FROM NewCust
+FROM NewCust；
+```
+
+从一个表复制到另一个表：
+
+* SELECT INTO语句用于将数据复制到一个新表，如果新表已存在则报错；
+* 想要只复制某部分列，可以给出列名，而不使用通配符（\*）；
+* 任何SELECT选项和子句都可以使用，包括WHERE和GROUP BY；
+* 可以使用[联结（join）](/sql/lian-jie-ff08-join.md)从多个表插入数据；
+* 不管从多少个表中检索数据，数据只能插入到一张表中。
+
+```
+SELECT *
+INTO CustCopy
+FROM Customers；
+```
+
+## 更新（UPDATE）
+
+* 没有WHERE子句时，会更新整个表的所有行，**应该避免**这样做。
+
+例如：更新客户1000000005的现有电子邮件：
+
+```
+UPDATE Customers
+SET cust_email = 'kim@thetoystore.com'
+WHERE cust_id = '1000000005'；
+```
+
+更新多个列：
+
+```
+UPDATE Customers
+SET cust_email = 'kim@thetoystore.com',
+	cust_contact = 'Sam Roberts'
+WHERE cust_id = '1000000005'
 ```
 
 
