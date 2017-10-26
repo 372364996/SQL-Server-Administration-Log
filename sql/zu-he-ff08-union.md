@@ -15,12 +15,12 @@ FROM Customers
 WHERE cust_state IN('IL', 'IN', 'MI')
 OR cust_name = 'Fun4All'
 
--- cust_name		cust_contact			cust_email
+-- cust_name        cust_contact            cust_email
 --------------------------------------------------------------
--- Village Toys		John Smith				sales@villagetoys.com
--- Fun4All			Jim Jones				jjones@fun4all.com
--- Fun4All			Denise L. Stephens		dstephens@fun4all.com
--- The Toy Store	Kim Howard				NULL
+-- Village Toys     John Smith              sales@villagetoys.com
+-- Fun4All          Jim Jones               jjones@fun4all.com
+-- Fun4All          Denise L. Stephens      dstephens@fun4all.com
+-- The Toy Store    Kim Howard              NULL
 ```
 
 还可使用组合方式查询：
@@ -33,6 +33,13 @@ UNION
 SELECT cust_name, cust_contact, cust_email
 FROM Customers
 WHERE cust_name = 'Fun4All'
+
+-- cust_name	cust_contact	cust_email
+------------------------------------------------------------------
+-- Fun4All		Denise L. Stephens		dstephens@fun4all.com
+-- Fun4All		Jim Jones		jjones@fun4all.com
+-- The Toy Store		Kim Howard		NULL
+-- Village Toys		John Smith		sales@villagetoys.com
 ```
 
 
