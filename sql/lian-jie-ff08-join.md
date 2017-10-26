@@ -22,7 +22,7 @@ WHERE子句的重要性：在联结两个表时，实际要做的是将第一个
 
 返回笛卡尔积的联结，称为叉联结。
 
-## 内联结（inner join）：
+## 内联结（INNER JOIN）：
 
 基于两个表之间相等的测试，这种联结称为内联结，也成为等值联结（EQUIjoin）。
 
@@ -72,9 +72,35 @@ WHERE C2.cust_contact = 'Jim Jones'
 SELECT cust_id, cust_name, cust_contact
 FROM Customers
 WHERE cust_name IN(SELECT cust_name
-				   FROM Customers
-				   WHERE cust_contact = 'Jim Jones'
-				   )
+                   FROM Customers
+                   WHERE cust_contact = 'Jim Jones'
+                   )
+```
+
+## 自然联结
+
+即在联结查询时，排除重复出现的列，保证每个列只出现一次。
+
+## 外联结（OUTER JOIN）
+
+外联结包含了那些在相关表中没有关联的行。
+
+使用OUTER JOIN语法时，必须指定RIGHT或LEFT关键字指定**包括其所有行的表**（RIGHT指出的是OUTER JOIN右边的表，而LEFT指出的是OUTER JOIN左边的表）。
+
+```
+SELECT C.cust_id, O.order_num
+FROM Customers AS C
+LEFT OUTER JOIN Orders AS O
+ON C.cust_id = O.cust_id
+
+-- cust_id		order_num
+---------------------------
+-- 1000000001	20005
+-- 1000000001	20009
+-- 1000000002	NULL
+-- 1000000003	20006
+-- 1000000004	20007
+-- 1000000005	20008
 ```
 
 
