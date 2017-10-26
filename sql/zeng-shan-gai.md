@@ -47,21 +47,47 @@ VALUES('1000000006',
 
 插入部分行：
 
+可以省略自动设置默认值或允许为NULL的列。
+
 ```
 INSERT INTO Customers([cust_id], 
-					  [cust_name], 
-					  [cust_address], 
-					  [cust_city], 
-					  [cust_state], 
-					  [cust_zip], 
-					  [cust_country])
+                      [cust_name], 
+                      [cust_address], 
+                      [cust_city], 
+                      [cust_state], 
+                      [cust_zip], 
+                      [cust_country])
 VALUES('1000000006', 
-	   'Toy Land',
-	   '123 Any Street',
-	   'New York',
-	   'NY',
-	   '11111',
-	   'USA');
+       'Toy Land',
+       '123 Any Street',
+       'New York',
+       'NY',
+       '11111',
+       'USA');
+```
+
+插入检索出的数据：
+
+```
+INSERT INTO Customers([cust_id]
+					, [cust_name]
+					, [cust_address]
+					, [cust_city]
+					, [cust_state]
+					, [cust_zip]
+					, [cust_country]
+					, [cust_contact]
+					, [cust_email])
+SELECT [cust_id]
+	 , [cust_name]
+	 , [cust_address]
+	 , [cust_city]
+	 , [cust_state]
+	 , [cust_zip]
+	 , [cust_country]
+	 , [cust_contact]
+	 , [cust_email]
+FROM NewCust
 ```
 
 
