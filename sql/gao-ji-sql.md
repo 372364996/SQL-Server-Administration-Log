@@ -70,5 +70,31 @@ CREATE TABLE Employees
 )
 ```
 
+第二中方法：
+
+```
+ALTER TABLE Employees
+ADD CONSTRAINT UniqueName UNIQUE(employ_id)
+```
+
+## 检查约束
+
+用来保证一列（或一组列）中的数据满足一组指定的条件，在数据类型的基础上进一步对数据做了限制，可以确保插入的数据最终想要的数据。常见用途如下：
+
+* 检查最下或最大值；
+* 指定范围；
+* 只允许特定值；
+
+```
+CREATE TABLE Products3
+(
+	prod_id CHAR(10) NOT NULL PRIMARY KEY,
+	vend_id CHAR(10) NOT NULL REFERENCES Venders(vend_id),
+	prod_name CHAR(254) NOT NULL UNIQUE,
+	prod_price DECIMAL(8,2) NOT NULL CHECK (prod_price > 0),
+	prod_desc VARCHAR(1000) NULL DEFAULT ''
+);
+```
+
 
 
