@@ -36,54 +36,56 @@ COMMIT TRANSACTION
 
 一个完整的例子：
 
+* @@ERROR：系统变量，返回0表示执行成功，非0表示失败；
+
 ```
 -- 开始事务
 BEGIN TRANSACTION
 -- 插入一条顾客
 INSERT INTO Customers(cust_id, 
-					  cust_name)
-			   VALUES('1000000010',
-					  'Toys Emporium');
+                      cust_name)
+               VALUES('1000000010',
+                      'Toys Emporium');
 -- 放置保留点
 SAVE TRANSACTION StartOrder;
 -- 插入一条订单
 INSERT INTO Orders(order_num, 
-				   order_date,
-				   cust_id)
-			VALUES(20100,
-				   '2001/12/01',
-				   '1000000010');
+                   order_date,
+                   cust_id)
+            VALUES(20100,
+                   '2001/12/01',
+                   '1000000010');
 -- 如果有错误，回退到保留点
 IF @@ERROR <> 0 
-	ROLLBACK TRANSACTION StartOrder;
+    ROLLBACK TRANSACTION StartOrder;
 -- 插入一条订单详情
 INSERT INTO OrderItems(order_num,
-					   order_item,
-					   prod_id,
-					   quantity,
-					   item_price)
-				VALUES(20100,
-					   1,
-					   'BR01',
-					   100,
-					   5.49);
+                       order_item,
+                       prod_id,
+                       quantity,
+                       item_price)
+                VALUES(20100,
+                       1,
+                       'BR01',
+                       100,
+                       5.49);
 -- 如果有错误，回退到保留点
 IF @@ERROR <> 0
-	ROLLBACK TRANSACTION StartOrder;
+    ROLLBACK TRANSACTION StartOrder;
 -- 插入一条订单详情
 INSERT INTO OrderItems(order_num,
-					   order_item,
-					   prod_id,
-					   quantity,
-					   item_price)
-				VALUES(20100,
-					   2,
-					   'BR03',
-					   100,
-					   10.99);
+                       order_item,
+                       prod_id,
+                       quantity,
+                       item_price)
+                VALUES(20100,
+                       2,
+                       'BR03',
+                       100,
+                       10.99);
 -- 如果有错误，回退到保留点
 IF @@ERROR <> 0
-	ROLLBACK TRANSACTION StartOrder;
+    ROLLBACK TRANSACTION StartOrder;
 -- 提交事务
 COMMIT TRANSACTION
 ```
