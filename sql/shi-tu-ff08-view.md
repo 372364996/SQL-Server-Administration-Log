@@ -18,9 +18,35 @@
 
 ## 创建视图
 
+例如：列出已订购产品的所有顾客：
 
+```
+CREATE VIEW VW_ProductCustomers AS
+SELECT cust_name, cust_contact, prod_id
+FROM Customers AS C
+INNER JOIN Orders AS O
+ON C.cust_id = O.cust_id
+INNER JOIN OrderItems AS OI
+ON O.order_num = OI.order_num
+```
 
+查询视图：
 
+```
+SELECT cust_name, cust_contact
+FROM VW_ProductCustomers
+WHERE prod_id = 'RGAN01'
+```
+
+## 删除视图
+
+```
+DROP VIEW VW_ProductCustomers;
+```
+
+## 重命名视图
+
+必须先删除视图在重新创建。
 
 
 
