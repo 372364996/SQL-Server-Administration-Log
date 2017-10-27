@@ -29,10 +29,10 @@ WHERE cust_email IS NULL;
 OPEN CustCursor;
 ```
 
-使用游标（）：
+使用游标（FETCH）：
 
 ```
-
+FETCH NEXT FROM CustCursor
 ```
 
 关闭游标（CLOSE）：
@@ -41,46 +41,57 @@ OPEN CustCursor;
 CLOSE CustCursor;
 ```
 
-完整示例：
+释放游标（DE）：
 
 ```
-DECLARE @cust_id		CHAR(10),
-		@cust_name		CHAR(50),
-		@cust_address	CHAR(50),
-		@cust_city		CHAR(50),
-		@cust_state		CHAR(5),
-		@cust_zip		CHAR(10),
-		@cust_country	CHAR(50),
-		@cust_contact	CHAR(50),
-		@cust_email		CHAR(255)
+DEALLOCATE CustCursor;
+```
 
+完整示例：
+
+* @@FETCH\_STATUS：返回针对连接当前打开的任何游标发出的最后一条游标 FETCH 语句的状态。
+
+```
+DECLARE @cust_id         CHAR(10),
+        @cust_name       CHAR(50),
+        @cust_address    CHAR(50),
+        @cust_city       CHAR(50),
+        @cust_state      CHAR(5),
+        @cust_zip        CHAR(10),
+        @cust_country    CHAR(50),
+        @cust_contact    CHAR(50),
+        @cust_email      CHAR(255)
+-- 打开游标
 OPEN CustCursor;
-
+-- 使用
 FETCH NEXT FROM CustCursor
-	INTO @cust_id,
-		 @cust_name,
-		 @cust_address,
-		 @cust_city,
-		 @cust_state,
-		 @cust_zip,
-		 @cust_country,
-		 @cust_contact,
-		 @cust_email
-	WHILE @@FETCH_STATUS = 0
+    INTO @cust_id,
+         @cust_name,
+         @cust_address,
+         @cust_city,
+         @cust_state,
+         @cust_zip,
+         @cust_country,
+         @cust_contact,
+         @cust_email
+    WHILE @@FETCH_STATUS = 0
 BEGIN
 FETCH NEXT FROM CustCursor
-	INTO @cust_id,
-		 @cust_name,
-		 @cust_address,
-		 @cust_city,
-		 @cust_state,
-		 @cust_zip,
-		 @cust_country,
-		 @cust_contact,
-		 @cust_email
+    INTO @cust_id,
+         @cust_name,
+         @cust_address,
+         @cust_city,
+         @cust_state,
+         @cust_zip,
+         @cust_country,
+         @cust_contact,
+         @cust_email
 ...
 END
+-- 关闭游标
 CLOSE CustCursor;
+-- 删除游标引用，释放游标
+DEALLOCATE CustCursor;
 ```
 
 

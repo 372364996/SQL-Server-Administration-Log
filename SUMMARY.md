@@ -17,4 +17,5 @@
   * [存储过程（procedure）](sql/cun-chu-guo-cheng-ff08-procedure.md)
   * [事务（transaction）](sql/shi-wu-ff08-transaction.md)
   * [游标（cursor）](sql/you-biaoff08-cursor.md)
+  * [高级SQL](sql/gao-ji-sql.md)
 
