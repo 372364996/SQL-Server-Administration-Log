@@ -2,7 +2,7 @@
 
 定义：管理如何插入或处理数据库数据的规则；
 
-## 主键
+## 主键（PRIMARY KEY）
 
 用来保证一列（或一组列）中的值是唯一的，而且永不改动。
 
@@ -25,7 +25,7 @@ ALTER TABLE Vendors
 ADD CONSTRAINT PK_PrimaryKeyName PRIMARY KEY (vend_id);
 ```
 
-## 外键
+## 外键（FOREIGN KEY）
 
 用来保证**引用完整性**的及其重要的部分，其值必须在另一个表的主键中。外键有助于防止意外删除。如果启用**级联删除**功能，会自动删除关联的行。
 
@@ -34,9 +34,9 @@ ADD CONSTRAINT PK_PrimaryKeyName PRIMARY KEY (vend_id);
 ```
 CREATE TABLE Products3
 (
-	prod_id CHAR(10) NOT NULL PRIMARY KEY,
-	vend_id CHAR(10) NOT NULL REFERENCES Venders(vend_id),
-	...
+    prod_id CHAR(10) NOT NULL PRIMARY KEY,
+    vend_id CHAR(10) NOT NULL REFERENCES Venders(vend_id),
+    ...
 );
 ```
 
@@ -49,7 +49,7 @@ ALTER TABLE Products3
 ADD CONSTRAINT FK_ForeignKeyName FOREIGN KEY (vend_id) REFERENCES Vendors(vend_id);
 ```
 
-## 唯一约束
+## 唯一约束（UNIQUE）
 
 用来保证一列中的数据是唯一的，它与主键的区别如下：
 
@@ -64,9 +64,9 @@ ADD CONSTRAINT FK_ForeignKeyName FOREIGN KEY (vend_id) REFERENCES Vendors(vend_i
 ```
 CREATE TABLE Employees
 (
-	ID INTEGER NOT NULL PRIMARY KEY,
-	employ_id INTEGER NOT NULL UNIQUE,
-	...
+    ID INTEGER NOT NULL PRIMARY KEY,
+    employ_id INTEGER NOT NULL UNIQUE,
+    ...
 )
 ```
 
