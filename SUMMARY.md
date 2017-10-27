@@ -16,4 +16,5 @@
   * [视图（view）](sql/shi-tu-ff08-view.md)
   * [存储过程（procedure）](sql/cun-chu-guo-cheng-ff08-procedure.md)
   * [事务（transaction）](sql/shi-wu-ff08-transaction.md)
+  * [游标（cursor）](sql/you-biaoff08-cursor.md)
 
