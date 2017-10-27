@@ -26,8 +26,44 @@ RETURN @cnt;
 
 ```
 DECLARE @RetureValue INT;                    --声明局部变量
-EXECUTE @RetureValue = MailingListCount;
-SELECT @RetureValue;
+EXECUTE @RetureValue = MailingListCount;     --给局部变量赋值
+SELECT @RetureValue;                         --检索
+```
+
+使用存储过程插入新订单的例子：
+
+```
+-- 传入参数@cust_id
+CREATE PROCEDURE NewOrder @cust_id CHAR(10)
+AS
+-- 创建局部变量
+DECLARE @order_num INTEGER
+-- 为局部变量赋值
+SELECT @order_num = MAX(order_num)
+FROM Orders
+SELECT @order_num = @order_num + 1
+-- 插入数据
+INSERT INTO Orders(order_num, 
+				   order_date, 
+				   cust_id)
+VALUES(@order_num,
+	   GETDATE(),
+	   @cust_id)
+-- 返回结果
+RETURN @order_num;
+```
+
+与上面不同的版本：
+
+```
+-- 输入参数@cust_id
+CREATE PROCEDURE NewOrder @cust_id CHAR(10)
+AS
+-- 插入数据（id使用自增列，日期使用默认值GETDATE()函数）
+INSERT INTO Orders(cust_id)
+VALUES(@cust_id)
+-- 全局变量@@IDENTITY用于得到自动生成的ID
+SELECT order_num = @@IDENTITY;
 ```
 
 
