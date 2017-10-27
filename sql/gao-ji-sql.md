@@ -77,7 +77,7 @@ ALTER TABLE Employees
 ADD CONSTRAINT UniqueName UNIQUE(employ_id)
 ```
 
-## 检查约束
+## 检查约束（CHECK）
 
 用来保证一列（或一组列）中的数据满足一组指定的条件，在数据类型的基础上进一步对数据做了限制，可以确保插入的数据最终想要的数据。常见用途如下：
 
@@ -88,13 +88,24 @@ ADD CONSTRAINT UniqueName UNIQUE(employ_id)
 ```
 CREATE TABLE Products3
 (
-	prod_id CHAR(10) NOT NULL PRIMARY KEY,
-	vend_id CHAR(10) NOT NULL REFERENCES Venders(vend_id),
-	prod_name CHAR(254) NOT NULL UNIQUE,
-	prod_price DECIMAL(8,2) NOT NULL CHECK (prod_price > 0),
-	prod_desc VARCHAR(1000) NULL DEFAULT ''
+    prod_id CHAR(10) NOT NULL PRIMARY KEY,
+    vend_id CHAR(10) NOT NULL REFERENCES Venders(vend_id),
+    prod_name CHAR(254) NOT NULL UNIQUE,
+    prod_price DECIMAL(8,2) NOT NULL CHECK (prod_price > 0),
+    prod_desc VARCHAR(1000) NULL DEFAULT ''
 );
 ```
+
+另一个例子（检查性别）：
+
+```
+ALTER TABLE Employees
+ADD CONSTRAINT CheckName CHECK (gerder LIKE '[MF]');
+```
+
+## 索引
+
+
 
 
 
