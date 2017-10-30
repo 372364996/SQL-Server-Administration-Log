@@ -19,4 +19,5 @@
   * [游标（cursor）](sql/you-biaoff08-cursor.md)
   * [高级SQL](sql/gao-ji-sql.md)
 * [Integration Services 管理和性能调整](integration-services-guan-li-he-xing-neng-diao-zheng.md)
+  * [SSIS 简介](integration-services-guan-li-he-xing-neng-diao-zheng/ssis-jian-jie.md)
 
