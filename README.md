@@ -202,7 +202,6 @@
    VALUES(20009, 2, 'BNBG02', 250, 2.49);
    INSERT INTO OrderItems(order_num, order_item, prod_id, quantity, item_price)
    VALUES(20009, 3, 'BNBG03', 250, 2.49);
-
    ```
 
 
