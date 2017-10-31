@@ -49,5 +49,13 @@ Integration Services 数据流引擎和数据流组件：
 
 SSDT是个Visual Studio 外壳，用于创建SSIS解决方案和项目。
 
+SSIS的管理主要是在SQL Server Management Studio中进行的。
+
+通常，在环境间迁移SSIS解决方案意味着更改包中的动态信息，并设置包引用的所有信息。这些元素包括包配置设置、引用的XML或配置文件以解决方案数据源。
+
+当开发人员在SSDT中“保存”或“执行”包时，将立即覆盖旧版本的包，且不能撤销。如果发现修改错误，要进行补救，应将SSIS开发环境集成到版本控制系统中，如 Team Foundation Server\(TFS\)。
+
+## 
+
 
 
