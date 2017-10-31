@@ -11,6 +11,7 @@
    ```
    -------------------------
    -- Create Customers table
+   -- 创建顾客表
    -------------------------
    CREATE TABLE Customers
    (
@@ -27,6 +28,7 @@
 
    --------------------------
    -- Create OrderItems table
+   -- 创建订单详情表
    --------------------------
    CREATE TABLE OrderItems
    (
@@ -39,6 +41,7 @@
 
    ----------------------
    -- Create Orders table
+   -- 创建订单表
    ----------------------
    CREATE TABLE Orders
    (
@@ -49,6 +52,7 @@
 
    ------------------------
    -- Create Products table
+   -- 创建产品表
    ------------------------
    CREATE TABLE Products
    (
@@ -61,6 +65,7 @@
 
    -----------------------
    -- Create Vendors table
+   -- 创建供应商表
    -----------------------
    CREATE TABLE Vendors
    (
@@ -75,6 +80,7 @@
 
    ----------------------
    -- Define primary keys
+   -- 定义主键
    ----------------------
    ALTER TABLE Customers WITH NOCHECK ADD CONSTRAINT PK_Customers PRIMARY KEY CLUSTERED (cust_id);
    ALTER TABLE OrderItems WITH NOCHECK ADD CONSTRAINT PK_OrderItems PRIMARY KEY CLUSTERED (order_num, order_item);
@@ -84,6 +90,7 @@
 
    ----------------------
    -- Define foreign keys
+   -- 定义外键
    ----------------------
    ALTER TABLE OrderItems ADD
    CONSTRAINT FK_OrderItems_Orders FOREIGN KEY (order_num) REFERENCES Orders (order_num),
@@ -99,6 +106,7 @@
    ```
    ---------------------------
    -- Populate Customers table
+   -- 顾客表填充数据
    ---------------------------
    INSERT INTO Customers(cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country, cust_contact, cust_email)
    VALUES('1000000001', 'Village Toys', '200 Maple Lane', 'Detroit', 'MI', '44444', 'USA', 'John Smith', 'sales@villagetoys.com');
@@ -113,6 +121,7 @@
 
    -------------------------
    -- Populate Vendors table
+   -- 供应商表填充数据
    -------------------------
    INSERT INTO Vendors(vend_id, vend_name, vend_address, vend_city, vend_state, vend_zip, vend_country)
    VALUES('BRS01','Bears R Us','123 Main Street','Bear Town','MI','44444', 'USA');
