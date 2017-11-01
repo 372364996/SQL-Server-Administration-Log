@@ -102,12 +102,13 @@ SELECT子句顺序：
 
 分隔标识符
 
-* 对象名称包含 Microsoft SQL Server 中的保留字或使用了未列入限定字符的字符，必须进行分隔
+* 对象名称包含 Microsoft SQL Server 中的保留字或使用了未列入限定字符的字符，必须进行分隔：
   ```
   SELECT *
   FROM [Student]
   WHERE [number] = 15;
   ```
-* 
+* 还可使用双引号（""）来分隔：只有QUOTED\_IDENTIFIER选项设置为NO时，才使用双引号分隔符；
+
 
 
