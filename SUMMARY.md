@@ -3,6 +3,8 @@
 * [Introduction](README.md)
 * [Transact-SQL](sql.md)
   * [SQL 基本概念](sql/sql-ji-ben-gai-nian.md)
+    * [SQL 中的常量](sql/sql-ji-ben-gai-nian/sql-zhong-de-chang-liang.md)
+    * [SQL 中的变量](sql/sql-ji-ben-gai-nian/sql-zhong-de-bian-liang.md)
   * [检索（select）](sql/jian-suo-shu-ju.md)
   * [排序（order by）](sql/pai-xu.md)
   * [过滤（where）](sql/guo-lv.md)
