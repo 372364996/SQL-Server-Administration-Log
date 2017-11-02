@@ -1,6 +1,6 @@
 ## 控制流语句
 
-控制流语句是指那些用来控制程序执行和流程分支的命令。包括BEEGIN...END、IF...ELSE、CASE、WHILE、CONTINUE、BREAK、GOTO、WAITFOR。
+控制流语句是指那些用来控制程序执行和流程分支的命令。包括BEEGIN...END、IF...ELSE、CASE、WHILE、CONTINUE、BREAK、GOTO、WAITFOR、RETURN。
 
 BEEGIN...END语句：
 
@@ -15,8 +15,6 @@ END
 IF...ELSE语句：
 
 用来判断当条件成立时执行的程序段，以及条件不成立时执行的程序段，允许嵌套。
-
-
 
 ```
 IF 条件表达式（返回TRUE或FALSE）
@@ -92,7 +90,14 @@ WAITFOR TIME '7:00'；
 EXECUTE 定时工作任务；
 END;
 GO
+```
 
+RETURE语句：
+
+用于无条件的终止一个查询、存储过程或批处理。
+
+```
+RETURN 可以指定返回值；
 ```
 
 
