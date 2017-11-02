@@ -29,7 +29,7 @@ SET @j = 60;
 SELECT @sum = @i + @j;
 
 --PRINT @sum;        --打印输出110
-SELECT @sum;        --返回单个单元格，值为110
+SELECT @sum;         --返回单个单元格，值为110
 GO
 ```
 
