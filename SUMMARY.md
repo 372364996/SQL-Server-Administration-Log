@@ -22,7 +22,6 @@
   * [约束](sql/yue-shu.md)
   * [索引（index）](sql/suo-yin-ff08-index.md)
   * [触发器（trigger）](sql/hong-fa-qi-ff08-trigger.md)
-  * [高级SQL](sql/gao-ji-sql.md)
 * [Integration Services 管理和性能调整](integration-services-guan-li-he-xing-neng-diao-zheng.md)
   * [SSIS 简介](integration-services-guan-li-he-xing-neng-diao-zheng/ssis-jian-jie.md)
   * [SSIS 服务的管理](integration-services-guan-li-he-xing-neng-diao-zheng/ssis-fu-wu-de-guan-li.md)
