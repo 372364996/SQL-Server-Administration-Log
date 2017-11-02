@@ -20,7 +20,17 @@ SELECT @name = 'WANG'    -- 每次可以同时给多个变量赋值
 例如：编写程序计算两个数之和：
 
 ```
+DECLARE @i int,
+		@j int,
+		@sum int
 
+SET @i = 50
+SET @j = 60
+SELECT @sum = @i + @j
+
+--PRINT @sum
+SELECT @sum
+GO
 ```
 
 全局变量：
