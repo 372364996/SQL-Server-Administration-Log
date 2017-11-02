@@ -9,6 +9,7 @@
     * [SQL 控制流语句](sql/sql-ji-ben-gai-nian/sql-kong-zhi-liu-yu-ju.md)
   * [函数](sql/han-shu.md)
     * [数学函数](sql/han-shu/shu-xue-han-shu.md)
+    * [字符串函数](sql/han-shu/zi-fu-chuan-han-shu.md)
   * [检索（select）](sql/jian-suo-shu-ju.md)
   * [排序（order by）](sql/pai-xu.md)
   * [过滤（where）](sql/guo-lv.md)

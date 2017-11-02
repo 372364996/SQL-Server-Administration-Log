@@ -71,8 +71,6 @@ SELECT RTRIM('ABC    ');     --返回abc
 SELECT GETDATE();            --返回当前时间
 ```
 
-
-
 ## 文本处理函数
 
 | 函数 | 说明 |
