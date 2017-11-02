@@ -9,6 +9,7 @@
   * [排序（order by）](sql/pai-xu.md)
   * [过滤（where）](sql/guo-lv.md)
   * [函数](sql/han-shu.md)
+    * [计算字段](sql/han-shu/ji-suan-zi-duan.md)
   * [分组（group by）](sql/fen-zu.md)
   * [子查询（select）](sql/zi-cha-xun.md)
   * [联结（join）](sql/lian-jie-ff08-join.md)
