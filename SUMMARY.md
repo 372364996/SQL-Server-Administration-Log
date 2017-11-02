@@ -2,9 +2,10 @@
 
 * [Introduction](README.md)
 * [数据库相关概念](shu-ju-ku-xiang-guan-gai-nian.md)
+  * [数据库基础](shu-ju-ku-xiang-guan-gai-nian/shu-ju-ku-ji-chu.md)
   * [数据模型](shu-ju-ku-xiang-guan-gai-nian/shu-ju-mo-xing.md)
 * [Transact-SQL](sql.md)
-  * [了解SQL](sql/le-jie-sql.md)
+  * [SQL 基本概念](sql/sql-ji-ben-gai-nian.md)
   * [检索数据](sql/jian-suo-shu-ju.md)
   * [排序](sql/pai-xu.md)
   * [过滤](sql/guo-lv.md)
