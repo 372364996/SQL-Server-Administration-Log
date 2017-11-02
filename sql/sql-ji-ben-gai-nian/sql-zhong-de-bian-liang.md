@@ -35,5 +35,28 @@ GO
 
 全局变量：
 
+全局变量是SQL Server 系统提供并赋值的变量，以@@开头，也称配置函数，用于存储系统的特定信息，作用范围并不局限于某一批处理或存储过程，任何批处理或存储过程可随时调用。
+
+* 全局变量是只读的；
+* 用户只能使用，不能自己定义全局变量，也不能修改其值；
+
+常用的全局变量：
+
+```
+
+
+SELECT @@CPU_BUSY;
+SELECT @@CURSOR_ROWS;
+SELECT @@ERROR;
+SELECT @@IDENTITY;
+SELECT @@LANGID;
+SELECT @@NESTLEVEL;
+SELECT @@PROCID;
+SELECT @@ROWCOUNT;
+SELECT @@SERVERNAME;
+SELECT @@SPID;
+SELECT @@VERSION;
+```
+
 
 
