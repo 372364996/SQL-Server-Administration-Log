@@ -22,7 +22,7 @@ LIKE是谓词而不是操作符。操作符何时不是操作符？答案是，�
 
 可移植：
 
-所编写的代码可以在多个系统上运行。
+编写的代码可以在多个系统上运行。
 
 聚集函数：
 
@@ -66,6 +66,35 @@ SELECT子句顺序：
   WHERE [number] = 15;
   ```
 * 还可使用双引号（""）来分隔：只有QUOTED\_IDENTIFIER选项设置为NO时，才使用双引号分隔符；
+
+## 常量
+
+常量是表示特定数据值的符号，也称为字面量，在整个程序运行过程中保持不变。T-SQL中常用的常量有字符串常量、整型常量、实型常量、日期时间常量、money常量和uniqueidentifier常量等；
+
+字符串常量：
+
+ASCⅡ和Unicode常量被分配了当前数据库的默认排序规则，除非使用COLLATE子句分配特定的排序规则：
+
+```
+SELECT 'abc' COLLATE French_CI_AI;
+SELECT N'lustig' COLLATE German_Phonebook_CS_AS;
+```
+
+如果单引号中的字符串包含引号，那么可以使用两个单引号表示嵌入的单引号：
+
+```
+SELECT N'WHAT? ''YES!'''
+-- WHAT? 'YES!'
+```
+
+* ASCⅡ字符常量用一个字节来存储；
+* Unicode字符串常量每个字符用两个字节存储，N前缀必须大写：N'What?'
+
+整型常量：
+
+## 变量
+
+
 
 
 
