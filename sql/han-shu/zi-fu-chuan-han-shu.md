@@ -15,14 +15,14 @@ SELECT LEFT('abcdefg',4);   --从左边开始截取4位长度的字符串（abcd
 SELECT RIGHT('abcdefg',4);  --从右边开始截取4位长度的字符串（defg）
 SELECT REPLICATE('ab-',5);  --将给定字符串重复5次后返回（ab-ab-ab-ab-ab-）
 SELECT REVERSE('abcdefg');  --翻转字符串（gfedcba）
-SELECT STR(12345.6789,12,2);	--将float类型数据转换为总位数12（不够在前面补空格）、小数位数为2位的字符串（    12345.68）
-SELECT SPACE(5);				--返回由5个空格组成的字符串(     )
-SELECT STUFF('abcdefg',2,3,'*');	--用字符*替换abcdefg字符串中从位置2开始长度为3个字符，并返回（a*efg）
-SELECT LEN('abc  ');			--返回字符串的字节数，不包含尾随的空格（3）
-SELECT LOWER('ABC');			--转换小写(abc)
-SELECT UPPER('abc');			--转换大写(ABC)
-SELECT PATINDEX('%ab%','acvmvmvvabcvmvvmmab');		--返回模式%ab%在字符串acvmvmvvabcvmvvmmab中第一次匹配的起始位置，不匹配返回0（9）
-SELECT SUBSTRING('abcdefg',2,3);	--截取字符串，从位置2开始截取长度为3的字符串（bcd）
+SELECT STR(12345.6789,12,2);    --将float类型数据转换为总位数12（不够在前面补空格）、小数位数为2位的字符串（    12345.68）
+SELECT SPACE(5);                --返回由5个空格组成的字符串(     )
+SELECT STUFF('abcdefg',2,3,'*');    --用字符*替换abcdefg字符串中从位置2开始长度为3个字符，并返回（a*efg）
+SELECT LEN('abc  ');            --返回字符串的字节数，不包含尾随的空格（3）
+SELECT LOWER('ABC');            --转换小写(abc)
+SELECT UPPER('abc');            --转换大写(ABC)
+SELECT PATINDEX('%ab%','acvmvmvvabcvmvvmmab'); --返回模式%ab%在字符串acvmvmvvabcvmvvmmab中第一次匹配的起始位置，不匹配返回0（9）
+SELECT SUBSTRING('abcdefg',2,3);    --截取字符串，从位置2开始截取长度为3的字符串（bcd）
 ```
 
 
